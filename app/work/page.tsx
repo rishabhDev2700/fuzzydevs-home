@@ -6,10 +6,26 @@ import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import rytr from '@/assets/rytr.png'
+import mmcs from '@/assets/mmcs.png'
+import BrainShift from '@/assets/BrainShift.png'
 import ecommerce from '@/assets/ecommerce.png'
 // import rytr from '@/assets/rytr.png'
 
 const projects = [
+  {
+    title: 'M.M.C.S',
+    description: 'Single  page Website for NGO',
+    image: mmcs,
+    tags: ['Website', 'NGO', 'Javascript', 'HTML/CSS'],
+    demoUrl: 'http://www.mmcs.org.in',
+  },
+  {
+    title: 'Brainshift',
+    description: 'BrainShift is the productivity app designed to help you overcome procrastination and build lasting productive habits through smart time management and goal tracking.',
+    image: BrainShift,
+    tags: ['Website', 'NGO', 'Javascript', 'HTML/CSS'],
+    demoUrl: 'https://brainshift.in/',  
+  },
   {
     title: 'Parking Lots Management and Booking System',
     description: 'A comprehensive healthcare management system with appointment scheduling, patient records, and telemedicine capabilities.',
@@ -42,8 +58,9 @@ const projects = [
     demoUrl: '#',
     githubUrl: '#',
   },
+  
 ];
-
+  
 export default function WorkPage() {
   return (
     <main className="min-h-screen pt-16 pb-16">
@@ -89,19 +106,23 @@ export default function WorkPage() {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <Button asChild>
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      Source Code
-                    </a>
-                  </Button>
-                </div>
+  <Button asChild>
+    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+      <ExternalLink className="mr-2 h-4 w-4" />
+      Live Demo
+    </a>
+  </Button>
+
+  {project.githubUrl && project.githubUrl !== '#' && (
+    <Button variant="outline" asChild>
+      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+        <Github className="mr-2 h-4 w-4" />
+        Source Code
+      </a>
+    </Button>
+  )}
+</div>
+
               </div>
             </Card>
           ))}
